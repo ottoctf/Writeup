@@ -4,4 +4,4 @@ Här dokumenteras mina writeups från olika CTF plattformar som TryHackMe och Ha
 
 ## Tryhackme
 
-Jag började skriva enkla writeups när jag började som inte är mina bästa men valde att ha kvar dem i mappen [early-writeups](/early-writeups)
+Jag skrev enkla writeups när jag började med TryHackMe som inte är mina bästa men valde att ha kvar dem i mappen [early-writeups](/TryHackMe/early-writeups)
