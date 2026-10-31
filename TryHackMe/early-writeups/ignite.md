@@ -26,23 +26,23 @@ Sökte upp CVE för den versionen. Den var sårbar för SQL-Injektion och RCE.
 
 Scrollade på sidan och jag hittade att det är en MySQL databas. Samt filvägen till database.php
 
-![screenshot](images/ignitemysql.png)
+![screenshot](../images/ignitemysql.png)
 
 Efter att jag scrollade lite längre ner så hittade jag URL till admin inloggningen med standard inloggning.
-![screenshot](images/ignitedefaultcred.png)
+![screenshot](../images/ignitedefaultcred.png)
 
 Standard inloggningen var inte ändrad från admin/admin. Fick tillgång till /dashboard med admin access.
-![screenshot](images/loggedin.png)
+![screenshot](../images/loggedin.png)
 
 Härifrån provade jag att komma åt database.php men fick en 403 Forbidden. Detta innebär att det är HTTP som blockerar filen och inte filsystemet.
 
-![screenshot](images/403.png)
+![screenshot](../images/403.png)
 
 
 Inne i /assets så kunde man ladda upp bilder. Jag tänkte prova om man kunde ladda upp ett php reverse shell men det gick inte att välja .php filer. I burp suite proxy så valde jag en vanlig bild och i min HTTP Request så ändrade jag filen till shell.php 
 
 Det misslyckades däremot med ett felmeddelande.
-![screenshot](images/failupload.png)
+![screenshot](../images/failupload.png)
 
 ## Initial Access
 
@@ -121,7 +121,7 @@ python3 rce.py -u http://10.112.170.188
 ```
 Exploiten fungerade och resulterade i RCE på systemet.
 
-![screenshot](images/exploit.png)
+![screenshot](../images/exploit.png)
 
 För att få stabilare åtkomst till systemet skapade jag en fil vid namn shell.sh innehållande ett bash reverse shell till min attackmaskin.
 
@@ -149,7 +149,7 @@ Jag körde sedan reverse shellet via bash.
 
 Inuti min terminal där jag körde min lyssnare så använde jag whoami för att verifiera att jag fått tillgång.
 
-![screenshot](images/whoami.png)
+![screenshot](../images/whoami.png)
 
 Detta gav ett begränsat shell utan TTY-funktionalitet, vilket gjorde att tab-completion och användning av piltangenterna inte fungerade. Jag ville uppgradera till ett interaktivt bash shell med TTY funktioner.
 
@@ -216,7 +216,7 @@ Jag kunde komma åt och läsa database.php.
 
 Här ser vi inloggningen för root i klartext.
 
-![screenshot](images/root.png)
+![screenshot](../images/root.png)
 
 Jag bytte sedan användare till root med su och använde lösenordet "mememe" sedan körde jag whoami.
 ```bash
@@ -227,7 +227,7 @@ su
 mememe
 ```
 
-![screenshot](images/rootaccess.png)
+![screenshot](../images/rootaccess.png)
 
 Inuti /root hittade jag root.txt
 
