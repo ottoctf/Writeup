@@ -293,8 +293,6 @@ Här ser man att det är en 64-bitars `Windows Server 2016 Standard`. För dessa
 
 JuicyPotato utnyttjar `SeImpersonatePrivilege` med hjälp av COM/DCOM-tjänster för att få tag på en SYSTEM-token som sedan kan användas för att starta ett program med SYSTEM-rättigheter.
 
-JuicyPotato är främst relevant för äldre Windows-versioner, och eftersom labbmaskinen kör Windows Server 2016 valde jag att testa om tekniken fungerade.
-
 Nästa steg var då att få `JuicyPotato.exe` nedladdat till Windows-Maskinen.
 
 ```
